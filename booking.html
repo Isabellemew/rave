@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Booking — Rave Astana</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav-wrap">
+    <a href="index.html" class="logo">RAVE<span>ASTANA</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="booking.html" class="active">Booking</a>
+      <a href="contacts.html">Contacts</a>
+    </nav>
+    <a href="#booking-form" class="btn btn-neon btn-sm hide-mobile">Book Now</a>
+    <button class="burger" id="burger"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-title">Book a <span class="neon-pink">Table / VIP</span></h1>
+    <p class="page-sub">Reserve your spot and let the night begin.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container booking-grid">
+    <div class="booking-info">
+      <h2>Booking <span class="neon-blue">rules</span></h2>
+      <ul class="rules">
+        <li>📅 Reservations are confirmed via call or WhatsApp.</li>
+        <li>💳 VIP / karaoke rooms require a deposit (50% of minimum check).</li>
+        <li>🍾 Minimum check: weekdays 30 000 ₸ / weekends 50 000 ₸ per VIP.</li>
+        <li>⏰ Late by more than 30 min → table may be released.</li>
+        <li>🎂 Birthdays — bring your ID for a complimentary gift 🎁</li>
+        <li>👔 Smart‑casual dress code. Face control & age 21+.</li>
+      </ul>
+      <div class="quick-contacts">
+        <a href="https://wa.me/77000000000" class="btn btn-neon">💬 Book via WhatsApp</a>
+        <a href="https://www.instagram.com/rave.astana/" target="_blank" class="btn btn-outline">📷 Instagram DM</a>
+      </div>
+    </div>
+
+    <form class="booking-form" id="booking-form" onsubmit="handleBooking(event)">
+      <h2>Send <span class="neon-pink">request</span></h2>
+      <div class="field">
+        <label>Your name</label>
+        <input type="text" required placeholder="John Doe">
+      </div>
+      <div class="field">
+        <label>Phone / WhatsApp</label>
+        <input type="tel" required placeholder="+7 ___ ___ __ __">
+      </div>
+      <div class="row-2">
+        <div class="field"><label>Date</label><input type="date" required></div>
+        <div class="field"><label>Time</label><input type="time" required></div>
+      </div>
+      <div class="field">
+        <label>Number of guests</label>
+        <input type="number" min="1" max="50" required placeholder="4">
+      </div>
+      <div class="field">
+        <label>Type</label>
+        <select>
+          <option>Regular Table</option>
+          <option>Lounge Zone</option>
+          <option>Karaoke Room (Small)</option>
+          <option>Karaoke Room (Large)</option>
+          <option>VIP Lounge</option>
+        </select>
+      </div>
+      <div class="checks">
+        <label><input type="checkbox"> VIP / Karaoke Room</label>
+        <label><input type="checkbox"> Birthday / Special Occasion</label>
+      </div>
+      <div class="field">
+        <label>Comments</label>
+        <textarea rows="3" placeholder="Anything we should know..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-neon btn-full">Send Booking Request</button>
+      <p class="success" id="success">✓ Request sent! We'll contact you shortly.</p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div><a href="index.html" class="logo">RAVE<span>ASTANA</span></a><p class="muted">Karaoke • Lounge • Sport Bar.</p></div>
+    <div><h4>Navigation</h4><a href="about.html">About</a><a href="menu.html">Menu</a><a href="gallery.html">Gallery</a></div>
+    <div><h4>Contact</h4><p class="muted">Astana, Kazakhstan</p></div>
+    <div><h4>Follow</h4><a href="https://www.instagram.com/rave.astana/" target="_blank">Instagram</a></div>
+  </div>
+  <div class="copyright">© 2025 Rave Astana</div>
+</footer>
+<script src="js/script.js"></script>
+</body>
+</html>
