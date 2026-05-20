@@ -23,16 +23,37 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Booking form handler
-function handleBooking(e){
+// Booking form handler — отправляет данные на локальный сервер
+async function handleBooking(e){
   e.preventDefault();
+  const form = e.target;
   const success = document.getElementById('success');
-  if(success){
-    success.classList.add('show');
-    e.target.reset();
-    setTimeout(() => success.classList.remove('show'), 5000);
-    // scroll to success
-    success.scrollIntoView({behavior:'smooth', block:'center'});
+  const formData = Object.fromEntries(new FormData(form).entries());
+
+  try{
+    const resp = await fetch('http://localhost:5000/bookings', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(formData)
+    });
+
+    if(resp.ok){
+      if(success){
+        success.classList.add('show');
+        form.reset();
+        setTimeout(() => success.classList.remove('show'), 5000);
+        success.scrollIntoView({behavior:'smooth', block:'center'});
+      } else {
+        alert('Booking sent.');
+      }
+    } else {
+      const text = await resp.text();
+      console.error('Server error:', resp.status, text);
+      alert('Failed to send booking. Server returned ' + resp.status);
+    }
+  } catch(err){
+    console.error('Network error:', err);
+    alert('Не удалось отправить запрос. Убедитесь, что сервер запущен (python server.py).');
   }
 }
 
